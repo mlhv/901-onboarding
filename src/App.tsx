@@ -1,16 +1,38 @@
-import TeamCard from './TeamCard'
-import type { Team } from './types'
+import TeamList from './TeamList'
 import './App.css'
 
 function App() {
-  const team: Team = {
-    id: '1',
-    teamName: 'Team A',
-    school: 'School A'
-  }
+
+  const teams = [
+    {
+      id: '1',
+      teamName: 'Team A',
+      school: 'School A'
+    },
+    {
+      id: '2',
+      teamName: 'Team B',
+      school: 'School B'
+    },
+    {
+      id: '3',
+      teamName: 'Team C',
+      school: 'School C'
+    },
+    {
+      id: '4',
+      teamName: 'Team D',
+      school: 'School D'
+    },
+    {
+      id: '5',
+      teamName: 'Team E',
+      school: 'School E'
+    }
+  ]
 
   return (
-      <TeamCard team={team} />
+      <TeamList teams={teams} />
   )
 }
 
