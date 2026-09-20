@@ -17,6 +17,11 @@
   }
 }
 
+.team-card.selected {
+  border: 2px solid royalblue;
+  background-color: #f0f8ff;
+}
+
 .hero {
   position: relative;
 
