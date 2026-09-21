@@ -1,7 +1,18 @@
 import TeamList from './TeamList'
+import { getTeamStatus } from './getTeamStatus';
+import { useState } from 'react';
 import './App.css'
 
 function App() {
+  const [teamStatusAttr, setTeamStatusAttr] = useState<string | null>(null);
+
+  function dispatch(eventName: string, detail: any) {
+    if (eventName === 'requestTeamStatus') {
+      getTeamStatus(detail.teamId).then((result) => {
+        setTeamStatusAttr(JSON.stringify(result));
+      });
+    }
+  }
 
   const teams = [
     {
@@ -32,7 +43,11 @@ function App() {
   ]
 
   return (
-      <TeamList teams={teams} />
+      <TeamList 
+      teams={teams}
+      attributes={{ 'team-status': teamStatusAttr }}
+      dispatch={dispatch}
+      />
   )
 }
 
